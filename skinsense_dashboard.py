@@ -223,8 +223,8 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     dataset_choice = st.radio(
-        "📦 Pilih Dataset",
-        ["🖼️ Dataset Citra Kulit", "🧪 Dataset Bahan Aktif", "📊 Tampilkan Semua"],
+        "Pilih Dataset",
+        ["Dataset Citra Kulit", "Dataset Bahan Aktif", "Tampilkan Semua"],
         index=2,
     )
 
@@ -240,7 +240,7 @@ with st.sidebar:
 
     st.markdown("""
     <div style='background:rgba(240,147,251,0.1);border:1px solid rgba(240,147,251,0.2);border-radius:10px;padding:0.8rem;margin-top:1rem;'>
-    <div style='color:#f093fb;font-size:0.78rem;font-weight:600;'>🎯 Capstone Project</div>
+    <div style='color:#f093fb;font-size:0.78rem;font-weight:600;'> Capstone Project</div>
     <div style='color:rgba(255,255,255,0.5);font-size:0.74rem;margin-top:0.3rem;'>Smart Facial Skin Detection & Personalized Skincare Recommendation</div>
     </div>
     """, unsafe_allow_html=True)
@@ -391,19 +391,19 @@ st.markdown("<hr class='fancy'>", unsafe_allow_html=True)
 # ═══════════════════════════════════════════════════════
 # DATASET 1 — CITRA KULIT
 # ═══════════════════════════════════════════════════════
-show_d1 = dataset_choice in ["🖼️ Dataset Citra Kulit", "📊 Tampilkan Semua"]
-show_d2 = dataset_choice in ["🧪 Dataset Bahan Aktif", "📊 Tampilkan Semua"]
+show_d1 = dataset_choice in ["Dataset Citra Kulit", "Tampilkan Semua"]
+show_d2 = dataset_choice in ["Dataset Bahan Aktif", "Tampilkan Semua"]
 
 if show_d1:
     st.markdown("<div class='section-title'>📁 Dataset 1 — Citra Kulit Wajah</div>", unsafe_allow_html=True)
     st.markdown("<div class='section-subtitle'>Sumber: Kaggle · Dataset klasifikasi kulit wajah · 882 gambar · 4 kelas</div>", unsafe_allow_html=True)
 
-    tabs_d1 = st.tabs(["🔍 Data Wrangling", "📊 EDA Pertanyaan 1", "🎨 EDA Pertanyaan 2", "✅ Kesimpulan"])
+    tabs_d1 = st.tabs(["🔍 Data Wrangling", "EDA Pertanyaan 1", "EDA Pertanyaan 2", "Kesimpulan"])
 
     # ── TAB 1: Data Wrangling ─────────────────────────
     with tabs_d1[0]:
         st.markdown("<div class='step-badge'>Tahap 1 · Gathering → Assessing → Cleaning</div>", unsafe_allow_html=True)
-        st.markdown("### 📦 Ringkasan Gathering Data")
+        st.markdown("### Ringkasan Gathering Data")
 
         c1, c2 = st.columns(2)
         with c1:
@@ -421,7 +421,7 @@ if show_d1:
         with c2:
             st.markdown("""
             <div class='insight-box'>
-                <h4>🔬 Assessing Data — Temuan</h4>
+                <h4> Assessing Data — Temuan</h4>
                 <ul>
                     <li>Format file: <b>JPG, JPEG, PNG</b> (beragam)</li>
                     <li>Resolusi: sangat bervariasi (300px — 1600px)</li>
@@ -432,7 +432,7 @@ if show_d1:
                 </ul>
             </div>""", unsafe_allow_html=True)
 
-        st.markdown("### 🧹 Hasil Proses Cleaning")
+        st.markdown("### Hasil Proses Cleaning")
 
         st.markdown("""
         <div style='background:rgba(79,172,254,0.08);border:1px solid rgba(79,172,254,0.25);border-radius:12px;padding:0.9rem 1.2rem;margin-bottom:1rem;'>
@@ -449,7 +449,7 @@ if show_d1:
         with col_f1:
             st.markdown("""
             <div class='insight-box'>
-                <h4>✅ Insight Data Wrangling</h4>
+                <h4> Insight Data Wrangling</h4>
                 <ul>
                     <li><b>Struktur rapi:</b> 4 folder terpisah sesuai kelas label memudahkan pipeline training model Deep Learning.</li>
                     <li><b>Kualitas tinggi:</b> Tidak ada gambar corrupt/non-image. Dataset sudah siap untuk EDA.</li>
@@ -463,11 +463,11 @@ if show_d1:
             <div style='background:linear-gradient(135deg,rgba(67,233,123,0.12),rgba(79,172,254,0.08));border:1px solid rgba(67,233,123,0.25);border-radius:14px;padding:1.2rem;text-align:center;height:100%;box-sizing:border-box;'>
                 <div style='font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.5rem;'>Pipeline Lengkap</div>
                 <div style='color:#fff;font-size:0.85rem;line-height:2;'>
-                    🗂️ Raw Data<br>
+                    Raw Data<br>
                     <span style='color:rgba(255,255,255,0.3);font-size:0.75rem;'>↓ Cleaning</span><br>
-                    📊 <b style='color:#4facfe;'>EDA (882 citra)</b><br>
+                    <b style='color:#4facfe;'>EDA (882 citra)</b><br>
                     <span style='color:rgba(255,255,255,0.3);font-size:0.75rem;'>↓ Augmentasi*</span><br>
-                    🤖 Training (~2.500 citra)<br>
+                    Training (~2.500 citra)<br>
                 </div>
                 <div style='font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:0.7rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:0.6rem;'>
                     *Augmentasi dilakukan setelah EDA, di luar scope analisis ini
@@ -493,7 +493,7 @@ if show_d1:
                 text="Total Images",
             )
             fig_bar.update_traces(textposition="outside", textfont_size=13)
-            style_fig(fig_bar, "📊 Distribusi Jumlah Gambar per Kelas")
+            style_fig(fig_bar, "Distribusi Jumlah Gambar per Kelas")
             st.plotly_chart(fig_bar, use_container_width=True)
 
         with col2:
@@ -503,11 +503,11 @@ if show_d1:
                 hole=0.4,
             )
             fig_pie.update_traces(textinfo="percent+label", pull=[0.05,0,0,0])
-            style_fig(fig_pie, "🥧 Persentase Distribusi Dataset")
+            style_fig(fig_pie, "Persentase Distribusi Dataset")
             st.plotly_chart(fig_pie, use_container_width=True)
 
         # Tabel distribusi
-        st.markdown("#### 📋 Tabel Distribusi Lengkap")
+        st.markdown("#### Tabel Distribusi Lengkap")
         df_tbl = df_sorted.copy()
         df_tbl["Proporsi (%)"] = (df_tbl["Total Images"] / df_tbl["Total Images"].sum() * 100).round(1)
         df_tbl["Status"] = df_tbl["Total Images"].apply(lambda x: "🟢 Mayor" if x >= 225 else "🟡 Moderat" if x >= 180 else "🔴 Minor")
@@ -551,13 +551,13 @@ if show_d1:
                 color_discrete_sequence=RED_PAL,
                 points="outliers",
             )
-            style_fig(fig_box, "☀️ Distribusi Brightness (Kecerahan) per Kelas")
+            style_fig(fig_box, "Distribusi Brightness (Kecerahan) per Kelas")
             st.plotly_chart(fig_box, use_container_width=True)
 
         # Visual karakteristik tabel
         st.markdown("#### 🔬 Tanda Tangan Visual per Kelas")
         visual_data = {
-            "Kelas"        : ["Berjerawat 🔴","Berminyak 💧","Kering 🏜️","Normal ✨"],
+            "Kelas"        : ["Berjerawat","Berminyak","Kering","Normal"],
             "Fitur Kunci"  : ["Benjolan & Kemerahan","Specular Highlight","Tekstur Kasar/Flaky","Smooth & Gradual"],
             "Tipe Fitur DL": ["Edge Detection","Intensitas Pixel Lokal","Tekstur Frekuensi Tinggi","Transisi Warna Gradual"],
             "Brightness avg": [115, 160, 130, 155],
@@ -578,7 +578,7 @@ if show_d1:
 
     # ── TAB 5: Kesimpulan ─────────────────────────────
     with tabs_d1[3]:
-        st.markdown("### ✅ Kesimpulan Dataset Citra Kulit")
+        st.markdown("### Kesimpulan Dataset Citra Kulit")
 
         st.markdown("""
         <div class='conclusion-box'>
@@ -611,10 +611,10 @@ if show_d1 and show_d2:
 # DATASET 2 — BAHAN AKTIF
 # ═══════════════════════════════════════════════════════
 if show_d2:
-    st.markdown("<div class='section-title'>🧪 Dataset 2 — Bahan Aktif Skincare</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-title'> Dataset 2 — Bahan Aktif Skincare</div>", unsafe_allow_html=True)
     st.markdown("<div class='section-subtitle'>Sumber: INCI Decoder (Web Scraping) · Rule-Based Recommendation Engine · Knowledge Base Dermatologi</div>", unsafe_allow_html=True)
 
-    tabs_d2 = st.tabs(["🔍 Data Wrangling", "📊 EDA Pertanyaan 1", "🎨 EDA Pertanyaan 2", "✅ Kesimpulan"])
+    tabs_d2 = st.tabs(["🔍 Data Wrangling", "EDA Pertanyaan 1", "EDA Pertanyaan 2", "Kesimpulan"])
 
     # ── TAB 1: Data Wrangling ─────────────────────────
     with tabs_d2[0]:
@@ -624,7 +624,7 @@ if show_d2:
         with col1:
             st.markdown("""
             <div class='insight-box'>
-                <h4>📌 Gathering Data</h4>
+                <h4>Gathering Data</h4>
                 <ul>
                     <li>Metode: <b>Web Scraping</b> dari INCI Decoder (direktori kosmetik global)</li>
                     <li>Format: <b>CSV</b> (master_ingredients_dataset.csv)</li>
@@ -635,7 +635,7 @@ if show_d2:
         with col2:
             st.markdown("""
             <div class='insight-box'>
-                <h4>🔬 Temuan Assessing Data</h4>
+                <h4>Temuan Assessing Data</h4>
                 <ul>
                     <li><b>Missing Values:</b> Ditemukan di kolom raw_functions & raw_details (akibat HTML dinamis saat scraping)</li>
                     <li><b>Duplikasi:</b> Beberapa raw_ingredient muncul lebih dari sekali</li>
@@ -643,7 +643,7 @@ if show_d2:
                 </ul>
             </div>""", unsafe_allow_html=True)
 
-        st.markdown("#### ⚙️ Proses Feature Engineering — Knowledge Base Mapping")
+        st.markdown("#### Proses Feature Engineering — Knowledge Base Mapping")
         st.markdown("""
         <div style='background:rgba(255,255,255,0.03);border-radius:12px;padding:1rem 1.4rem;border:1px solid rgba(255,255,255,0.07);margin-bottom:1rem;'>
         <div style='color:rgba(255,255,255,0.5);font-size:0.8rem;margin-bottom:0.6rem;'>Pipeline Transformasi Data</div>
@@ -665,12 +665,12 @@ if show_d2:
                 </div>
             </div>""", unsafe_allow_html=True)
 
-        st.markdown("#### 📋 Dataset Final (df_final) — Preview")
+        st.markdown("#### Dataset Final (df_final) — Preview")
         st.dataframe(df_final.head(10), use_container_width=True, hide_index=True)
 
         st.markdown("""
         <div class='insight-box'>
-            <h4>✅ Insight Data Wrangling Dataset Bahan Aktif</h4>
+            <h4>Insight Data Wrangling Dataset Bahan Aktif</h4>
             <ul>
                 <li><b>Noise berhasil dihilangkan:</b> Regex normalisasi sukses menyamakan format teks (typo huruf besar/kecil, spasi berlebih).</li>
                 <li><b>Transformasi terstruktur:</b> Raw string diubah menjadi matriks tabular dengan korelasi langsung antara Jenis_Kulit dan Kategori_Fungsi.</li>
@@ -697,7 +697,7 @@ if show_d2:
                 text="Total Bahan Aktif",
             )
             fig_b_bar.update_traces(textposition="outside", textfont_size=13)
-            style_fig(fig_b_bar, "📊 Distribusi Bahan Aktif per Jenis Kulit")
+            style_fig(fig_b_bar, "Distribusi Bahan Aktif per Jenis Kulit")
             st.plotly_chart(fig_b_bar, use_container_width=True)
 
         with col2:
@@ -706,7 +706,7 @@ if show_d2:
                 color_discrete_sequence=BLUE_PAL, hole=0.4,
             )
             fig_b_pie.update_traces(textinfo="percent+label", pull=[0.05,0,0,0])
-            style_fig(fig_b_pie, "🥧 Proporsi Target Skincare")
+            style_fig(fig_b_pie, "Proporsi Target Skincare")
             st.plotly_chart(fig_b_pie, use_container_width=True)
 
         st.markdown("#### 📋 Tabel Distribusi Bahan Aktif")
@@ -717,7 +717,7 @@ if show_d2:
 
         st.markdown("""
         <div class='insight-box'>
-            <h4>💡 Insight Distribusi Bahan Aktif</h4>
+            <h4>Insight Distribusi Bahan Aktif</h4>
             <ul>
                 <li><b>Kering & Berjerawat dominan:</b> Representasi terbesar di knowledge base — mencerminkan kondisi medis dunia nyata bahwa kulit bermasalah butuh lebih banyak variasi bahan aktif.</li>
                 <li><b>Berminyak & Normal:</b> Lebih sedikit opsi karena kulit sehat tidak memerlukan intervensi bahan aktif yang kompleks.</li>
@@ -763,7 +763,7 @@ if show_d2:
             fig_heat.update_layout(
                 **PLOTLY_LAYOUT,
                 title=dict(
-                    text="🔥 Heatmap Korelasi: Fungsi × Jenis Kulit",
+                    text="Heatmap Korelasi: Fungsi × Jenis Kulit",
                     font=dict(size=14, color="#fff")
                 ),
                 xaxis_tickangle=-35,
@@ -817,7 +817,7 @@ if show_d2:
 
         st.markdown("""
         <div class='insight-box'>
-            <h4>💡 Insight Karakteristik Fungsional Knowledge Base</h4>
+            <h4>Insight Karakteristik Fungsional Knowledge Base</h4>
             <ul>
                 <li><b>Hydration & Anti-Acne dominan:</b> Membuktikan fokus bisnis SkinSense AI selaras dengan masalah utama konsumen kulit Indonesia.</li>
                 <li><b>Tanda tangan Berjerawat:</b> Anti-Acne + Soothing (membunuh bakteri sekaligus meredakan inflamasi) — formulasi ganda yang sangat spesifik.</li>
@@ -829,7 +829,7 @@ if show_d2:
 
     # ── TAB 4: Kesimpulan ─────────────────────────────
     with tabs_d2[3]:
-        st.markdown("### ✅ Kesimpulan Dataset Bahan Aktif")
+        st.markdown("### Kesimpulan Dataset Bahan Aktif")
 
         st.markdown("""
         <div class='conclusion-box'>
@@ -859,15 +859,15 @@ if show_d2:
 # ═══════════════════════════════════════════════════════
 # OVERALL CONCLUSION
 # ═══════════════════════════════════════════════════════
-if dataset_choice == "📊 Tampilkan Semua":
+if dataset_choice == "Tampilkan Semua":
     st.markdown("<hr class='fancy'>", unsafe_allow_html=True)
-    st.markdown("<div class='section-title'>🏆 Ringkasan Keseluruhan EDA</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-title'>Ringkasan Keseluruhan EDA</div>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
         <div style='background:linear-gradient(135deg,rgba(245,87,108,0.15),rgba(240,147,251,0.1));border:1px solid rgba(245,87,108,0.3);border-radius:18px;padding:1.5rem;'>
-            <div style='font-family:Playfair Display,serif;font-size:1.2rem;color:#f5576c;margin-bottom:0.8rem;'>🖼️ Dataset Citra</div>
+            <div style='font-family:Playfair Display,serif;font-size:1.2rem;color:#f5576c;margin-bottom:0.8rem;'>Dataset Citra</div>
             <div style='color:rgba(255,255,255,0.75);font-size:0.88rem;line-height:1.8;'>
                 ✅ 882 citra bersih · 4 kelas terwakili<br>
                 ✅ Moderately imbalanced → Augmentation on Kelas Kering<br>
@@ -878,7 +878,7 @@ if dataset_choice == "📊 Tampilkan Semua":
     with col2:
         st.markdown("""
         <div style='background:linear-gradient(135deg,rgba(79,172,254,0.15),rgba(67,233,123,0.1));border:1px solid rgba(79,172,254,0.3);border-radius:18px;padding:1.5rem;'>
-            <div style='font-family:Playfair Display,serif;font-size:1.2rem;color:#4facfe;margin-bottom:0.8rem;'>🧪 Dataset Bahan Aktif</div>
+            <div style='font-family:Playfair Display,serif;font-size:1.2rem;color:#4facfe;margin-bottom:0.8rem;'>Dataset Bahan Aktif</div>
             <div style='color:rgba(255,255,255,0.75);font-size:0.88rem;line-height:1.8;'>
                 ✅ 20 bahan aktif unik · 8 kategori fungsi<br>
                 ✅ Knowledge base valid secara dermatologi<br>
@@ -889,7 +889,7 @@ if dataset_choice == "📊 Tampilkan Semua":
 
     st.markdown("""
     <div style='background:linear-gradient(135deg,rgba(240,147,251,0.1),rgba(253,160,133,0.08));border:1px solid rgba(240,147,251,0.2);border-radius:18px;padding:1.6rem 2rem;margin-top:1.5rem;text-align:center;'>
-        <div style='font-family:Playfair Display,serif;font-size:1.5rem;color:#fff;margin-bottom:0.8rem;'>🎯 Konklusi Final SkinSense AI</div>
+        <div style='font-family:Playfair Display,serif;font-size:1.5rem;color:#fff;margin-bottom:0.8rem;'>Konklusi Final SkinSense AI</div>
         <div style='color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.85;max-width:800px;margin:auto;'>
             Kedua dataset — citra wajah dan knowledge base bahan aktif — telah melewati proses EDA yang komprehensif 
             dan saling melengkapi secara arsitektural. Fitur morfologi visual yang dideteksi model Deep Learning 
